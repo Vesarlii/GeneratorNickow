@@ -70,6 +70,8 @@ class RandomNickApp(QWidget):
             vertical_layout.addStretch()
 
             self.setLayout(vertical_layout)
+
+
             self.update_background_color()  # Dodanie zmiany koloru tła na początku
             self.update_font_color()  # Dodanie zmiany koloru czcionki na początku
         except Exception as e:
@@ -89,6 +91,7 @@ class RandomNickApp(QWidget):
             self.set_button_image(self.generate_button, 'button_combat.png')
         elif selected_type == 'Dziwny':
             self.set_button_image(self.generate_button, 'button_scary.png')
+
 
         self.update_background_color()
         self.update_font_color()
@@ -150,6 +153,6 @@ class RandomNickApp(QWidget):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = RandomNickApp()
-    window.setFixedSize(900, 500)  # Ustaw stały rozmiar okna
+    window.setFixedSize(900, 500)  # Mój stały rozmiar okna
     window.show()
     sys.exit(app.exec_())

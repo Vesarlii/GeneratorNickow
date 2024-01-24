@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sty 23, 2024 at 09:33 PM
+-- Generation Time: Sty 24, 2024 at 01:25 AM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -190,7 +190,29 @@ INSERT INTO `druga_czesc` (`id`, `nick`, `typ`) VALUES
 (150, 'Kapturek', 'Słodki'),
 (151, 'One-Trick-Pony', 'Dziwny'),
 (152, 'Tryhard', 'Dziwny'),
-(153, 'Dziad', 'Dziwny');
+(153, 'Dziad', 'Dziwny'),
+(154, 'Skorpion', 'Bojowy'),
+(155, 'Wiking', 'Bojowy'),
+(156, 'Kaczorek', 'Słodki'),
+(157, 'Kogucik', 'Słodki'),
+(158, 'Morświnek', 'Słodki'),
+(159, 'Samuraj', 'Bojowy'),
+(160, 'Potępieniec', 'Dziwny'),
+(161, 'Wodnik', 'Dziwny'),
+(162, 'Paralotniarz', 'Dziwny'),
+(163, 'Kokon', 'Dziwny'),
+(164, 'Kocyk', 'Słodki'),
+(165, 'Mechanik', 'Dziwny'),
+(166, 'Przewodnik', 'Bojowy'),
+(167, 'Chochlik', 'Słodki'),
+(168, 'Garncarz', 'Dziwny'),
+(169, 'Kociarz', 'Dziwny'),
+(170, 'Podpalacz', 'Dziwny'),
+(171, 'Samotnik', 'Bojowy'),
+(172, 'Pucybut', 'Dziwny'),
+(173, 'Pegaz', 'Słodki'),
+(174, 'Osiołek', 'Słodki'),
+(175, 'Pogoniec', 'Dziwny');
 
 -- --------------------------------------------------------
 
@@ -374,7 +396,42 @@ INSERT INTO `pierwsza_czesc` (`id`, `nick`, `Typ`) VALUES
 (163, 'Wynaturzony', 'Dziwny'),
 (164, 'Szarżujący', 'Bojowy'),
 (165, 'Okultystyczny', 'Dziwny'),
-(166, 'Okultystyczny', 'Bojowy');
+(166, 'Okultystyczny', 'Bojowy'),
+(167, 'Słodkowodny', 'Słodki'),
+(168, 'Słonowodny', 'Słodki'),
+(169, 'Ciasteczkowy', 'Słodki'),
+(170, 'Zapijaczony', 'Dziwny'),
+(171, 'Mętny', 'Dziwny'),
+(172, 'Miętowy', 'Słodki'),
+(173, 'Natchniony', 'Bojowy'),
+(174, 'Patriotyczny', 'Bojowy'),
+(175, 'Wrzeszczący', 'Bojowy'),
+(176, 'Zrozpaczony', 'Dziwny'),
+(177, 'Rozczłonkowany', 'Dziwny'),
+(178, 'Zmielony', 'Dziwny'),
+(179, 'Poszatkowany', 'Dziwny'),
+(180, 'Zarumieniony', 'Słodki'),
+(181, 'Tulisiowy', 'Słodki'),
+(182, 'Kochający', 'Słodki'),
+(183, 'Urokliwy', 'Słodki'),
+(184, 'Przebojowy', 'Dziwny'),
+(185, 'Przepołowiony', 'Dziwny'),
+(186, 'Oczytany', 'Bojowy'),
+(187, 'Przemieniony', 'Bojowy'),
+(188, 'Zreformowany', 'Dziwny'),
+(189, 'Niekulturalny', 'Dziwny'),
+(190, 'Podpuszczający', 'Dziwny'),
+(191, 'Przygarbiony', 'Dziwny'),
+(192, 'Podchmielony', 'Dziwny'),
+(193, 'Wulgarny', 'Dziwny'),
+(194, 'Złotooki', 'Słodki'),
+(195, 'Przymulony', 'Dziwny'),
+(196, 'Podrobiony', 'Dziwny'),
+(197, 'Trzydziestopalczasty', 'Dziwny'),
+(198, 'Bezrobotny', 'Dziwny'),
+(199, 'Korporacyjny', 'Dziwny'),
+(200, 'Biurowy', 'Dziwny'),
+(201, 'Przebojowy', 'Dziwny');
 
 --
 -- Indeksy dla zrzutów tabel
