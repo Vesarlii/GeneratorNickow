@@ -2,20 +2,16 @@ import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLabel, QComboBox, QSizePolicy
 from PyQt5.QtGui import QIcon, QPixmap, QFont
 from PyQt5.QtCore import Qt
-import mysql.connector
+import sqlite3
 import random
+import traceback
 
 class RandomNickApp(QWidget):
     def __init__(self):
         super().__init__()
 
-        # Połączenie z bazą danych MySQL
-        self.db_connection = mysql.connector.connect(
-            host="localhost",
-            user="root",
-            password="",  # Puste hasło, jeśli takie jest
-            database="nicki"
-        )
+        # Połączenie z bazą danych SQLite
+        self.db_connection = sqlite3.connect('nicki.db')
 
         # Utworzenie kursora
         self.cursor = self.db_connection.cursor()
@@ -71,7 +67,6 @@ class RandomNickApp(QWidget):
 
             self.setLayout(vertical_layout)
 
-
             self.update_background_color()  # Dodanie zmiany koloru tła na początku
             self.update_font_color()  # Dodanie zmiany koloru czcionki na początku
         except Exception as e:
@@ -92,7 +87,6 @@ class RandomNickApp(QWidget):
         elif selected_type == 'Dziwny':
             self.set_button_image(self.generate_button, 'button_scary.png')
 
-
         self.update_background_color()
         self.update_font_color()
 
@@ -103,7 +97,7 @@ class RandomNickApp(QWidget):
         elif selected_type == 'Bojowy':
             self.setStyleSheet("background-color: #536FFF;")  # Kolor niebieski dla bojowych
         elif selected_type == 'Dziwny':
-            self.setStyleSheet("background-color: #002200;")  # Kolor ciemn-ziel dla dziwnych
+            self.setStyleSheet("background-color: #002200;")  # Kolor ciemnozielony dla dziwnych
 
     def update_font_color(self):
         selected_type = self.type_combobox.currentText()
@@ -111,11 +105,11 @@ class RandomNickApp(QWidget):
             self.label1.setStyleSheet("color: #FAD4E2;")  # Róż dla etykiety słodki
             self.label2.setStyleSheet("color: #FAD4E2;")  # Róż dla etykiety słodki
         elif selected_type == 'Bojowy':
-            self.label1.setStyleSheet("color: #ffffff;")  # biały dla etykiety
-            self.label2.setStyleSheet("color: #ffffff;")  # biały czerwony dla etykiety
+            self.label1.setStyleSheet("color: #ffffff;")  # Biały dla etykiety
+            self.label2.setStyleSheet("color: #ffffff;")  # Biały dla etykiety
         elif selected_type == 'Dziwny':
-            self.label1.setStyleSheet("color: #75FF53;")  # Kolor ziel dla etykiety dziwnych
-            self.label2.setStyleSheet("color: #75FF53;")  # Kolor ziel dla etykiety dziwnych
+            self.label1.setStyleSheet("color: #75FF53;")  # Kolor zielony dla etykiety dziwnych
+            self.label2.setStyleSheet("color: #75FF53;")  # Kolor zielony dla etykiety dziwnych
 
     def generate_nick(self):
         try:
@@ -133,11 +127,12 @@ class RandomNickApp(QWidget):
                 self.label2.setText('Nie można znaleźć pasującego nicku.')
         except Exception as e:
             print(f"Błąd generowania nicku: {e}")
+            traceback.print_exc()
 
     def get_random_nick(self, table_name, type_value):
         try:
             # Zapytanie SQL do pobrania losowego nicku z danej tabeli i typem
-            query = f"SELECT nick FROM {table_name} WHERE typ = %s ORDER BY RAND() LIMIT 1"
+            query = f"SELECT nick FROM {table_name} WHERE typ = ? ORDER BY RANDOM() LIMIT 1"
 
             # Wykonanie zapytania
             self.cursor.execute(query, (type_value,))
@@ -149,10 +144,11 @@ class RandomNickApp(QWidget):
             return result[0] if result and result[0] else None
         except Exception as e:
             print(f"Błąd pobierania losowego nicku: {e}")
+            traceback.print_exc()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = RandomNickApp()
-    window.setFixedSize(900, 500)  # Mój stały rozmiar okna
+    window.setFixedSize(900, 500)  # Stały rozmiar okna
     window.show()
     sys.exit(app.exec_())
